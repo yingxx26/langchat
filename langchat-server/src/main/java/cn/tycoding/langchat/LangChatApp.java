@@ -17,6 +17,7 @@
 package cn.tycoding.langchat;
 
 import cn.tycoding.langchat.common.oss.EnableFileStorage;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -28,6 +29,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableFileStorage
 @EnableAsync
 @SpringBootApplication
+@MapperScan("cn.tycoding.langchat.*.mapper")
 public class LangChatApp {
 
     public static void main(String[] args) {
