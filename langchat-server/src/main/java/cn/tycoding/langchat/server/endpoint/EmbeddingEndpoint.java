@@ -92,6 +92,7 @@ public class EmbeddingEndpoint {
         return R.ok();
     }
 
+   //   yxx 向量模型  上传 分割 训练
     @PostMapping("/docs/{knowledgeId}")
     @SaCheckPermission("aigc:embedding:docs")
     public R docs(MultipartFile file, @PathVariable String knowledgeId) {

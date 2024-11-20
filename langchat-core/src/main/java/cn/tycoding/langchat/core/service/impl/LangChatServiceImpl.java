@@ -98,7 +98,7 @@ public class LangChatServiceImpl implements LangChatService {
                     .embeddingModel(embeddingProvider.getEmbeddingModel(req.getKnowledgeIds()))
                     .dynamicFilter(filter)
                     .build();
-            aiServices.retrievalAugmentor(DefaultRetrievalAugmentor
+            aiServices.retrievalAugmentor(DefaultRetrievalAugmentor//RetrievalAugmentor
                     .builder()
                     .contentRetriever(contentRetriever)
                     .build());

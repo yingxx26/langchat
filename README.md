@@ -1,5 +1,9 @@
 # LangChat
 
+管理员账号密码： administrator / langchat
+体验账号密码： langchat / langchat
+客户端账号密码： langchat@outlook.com / langchat
+
 > 快速构建企业级AIGC项目
 
 LangChat是Java生态下企业级AIGC项目解决方案，在RBAC权限体系的基础上，集成AIGC大模型能力，帮助企业快速定制AI知识库、企业AI机器人。

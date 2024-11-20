@@ -71,6 +71,7 @@ public class ChatServiceImpl implements ChatService {
         saveMessage(req, 0, 0);
 
         try {
+            //yxx 聊天核心
             langChatService
                     .chat(req)
                     .onNext(e -> {
@@ -79,6 +80,7 @@ public class ChatServiceImpl implements ChatService {
                     })
                     .onComplete((e) -> {
                         TokenUsage tokenUsage = e.tokenUsage();
+                        //嵌入存储内容检索器
                         List<Map<String, Object>> metadata = EmbeddingStoreContentRetrieverCustom.getMetadata(req.getConversationId());
                         ChatRes res = new ChatRes(tokenUsage.totalTokenCount(), startTime);
                         if (metadata != null) {

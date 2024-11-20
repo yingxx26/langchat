@@ -60,6 +60,7 @@ public class LangEmbeddingServiceImpl implements LangEmbeddingService {
         EmbeddingModel embeddingModel = embeddingProvider.getEmbeddingModel(req.getKnowledgeId());
         EmbeddingStore<TextSegment> embeddingStore = embeddingProvider.getEmbeddingStore(req.getKnowledgeId());
         Embedding embedding = embeddingModel.embed(segment).content();
+        //yxx向量数据库操作
         String id = embeddingStore.add(embedding, segment);
 
         log.info(">>>>>>>>>>>>>> Text文本向量解析结束，KnowledgeId={}, DocsName={}", req.getKnowledgeId(), req.getDocsName());
