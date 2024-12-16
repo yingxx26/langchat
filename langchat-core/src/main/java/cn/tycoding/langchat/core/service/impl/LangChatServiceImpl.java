@@ -83,13 +83,13 @@ public class LangChatServiceImpl implements LangChatService {
         if (StrUtil.isBlank(req.getConversationId())) {
             req.setConversationId(IdUtil.simpleUUID());
         }
-
+        //yxx  核心代码
         AiServices<Agent> aiServices = build(model, null, req);
 
         if (StrUtil.isNotBlank(req.getKnowledgeId())) {
             req.getKnowledgeIds().add(req.getKnowledgeId());
         }
-
+        //yxx  核心代码
         if (req.getKnowledgeIds() != null && !req.getKnowledgeIds().isEmpty()) {
             Function<Query, Filter> filter = (query) -> metadataKey(KNOWLEDGE).isIn(req.getKnowledgeIds());
             ContentRetriever contentRetriever = EmbeddingStoreContentRetrieverCustom.builder()

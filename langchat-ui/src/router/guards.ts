@@ -32,6 +32,7 @@ export function createRouterGuards(router: Router) {
   const userStore = useUser();
   const asyncRouteStore = useAsyncRoute();
   router.beforeEach(async (to, from, next) => {
+
     const Loading = window['$loading'] || null;
     Loading && Loading.start();
     if (from.path === LOGIN_PATH && to.name === 'errorPage') {
@@ -74,9 +75,7 @@ export function createRouterGuards(router: Router) {
     }
 
     const userInfo = await userStore.getInfo();
-
     const routes = await asyncRouteStore.generateRoutes(userInfo);
-
     // 动态添加可访问路由表
     routes.forEach((item) => {
       router.addRoute(item as unknown as RouteRecordRaw);

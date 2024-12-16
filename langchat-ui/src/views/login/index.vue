@@ -23,10 +23,14 @@
   import { PageEnum } from '@/enums/pageEnum';
   import { websiteConfig } from '@/config/website.config';
 
+  //标签
   const formRef = ref();
   const message = useMessage();
+  //数据
   const loading = ref(false);
+  //pinia
   const userStore = useUserStore();
+  //编程路由
   const router = useRouter();
   const form = reactive({
     username: 'langchat',
@@ -40,7 +44,9 @@
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(1);
     formRef.value.validate(async (errors: any) => {
+      console.log(2);
       if (!errors) {
         message.loading('登录中...');
         loading.value = true;
@@ -50,6 +56,7 @@
           const toPath = decodeURIComponent(
             (router.currentRoute.value.query?.redirect || '/') as string
           );
+          console.log(toPath);
           message.destroyAll();
           if (router.currentRoute.value.name === PageEnum.BASE_LOGIN_NAME) {
             await router.push('/');
@@ -106,7 +113,7 @@
           </n-form-item>
           <n-form-item class="login-animation3 mt-2">
             <n-button :loading="loading" block size="large" type="primary" @click="handleSubmit">
-              登录
+              登录aa
             </n-button>
           </n-form-item>
           <div class="login-animation4 mb-3">

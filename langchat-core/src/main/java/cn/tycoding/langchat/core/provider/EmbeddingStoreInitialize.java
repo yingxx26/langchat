@@ -91,6 +91,7 @@ public class EmbeddingStoreInitialize implements ApplicationContextAware {
                             .build();
                     contextHolder.registerBean(embed.getId(), store);
                 }
+                //yxx EmbeddingStore
                 if (EmbedStoreEnum.MILVUS.name().equalsIgnoreCase(embed.getProvider())) {
                     MilvusEmbeddingStore store = MilvusEmbeddingStore.builder()
                             .host(embed.getHost())

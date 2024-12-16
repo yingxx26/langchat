@@ -37,7 +37,7 @@
     :x-offset="22"
     :y-offset="100"
     :z-index="9999"
-    content="LangChat"
+    content="LangChatz"
     cross
     fullscreen
   />

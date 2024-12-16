@@ -103,6 +103,7 @@ export const useAsyncRouteStore = defineStore({
       this.keepAliveComponents = compNames;
     },
     async generateRoutes(data) {
+
       let accessedRouters;
       const permissionsList = data.permissions ?? [];
       const routeFilter = (route) => {
@@ -121,12 +122,14 @@ export const useAsyncRouteStore = defineStore({
         }
       } else {
         try {
+          debugger
           //过滤账户是否拥有某一个权限，并将菜单从加载列表移除
           accessedRouters = filter(asyncRoutes, routeFilter);
         } catch (error) {
           console.log(error);
         }
       }
+      debugger
       accessedRouters = accessedRouters.filter(routeFilter);
       this.setRouters(accessedRouters);
       this.setMenus(accessedRouters);
